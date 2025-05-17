@@ -1,22 +1,45 @@
-# sbot
+# 🤖 AI Savol-Javob Telegram Bot
 
+Bu Telegram bot foydalanuvchidan yuborilgan savollarga (matn, PDF yoki TXT fayl ko‘rinishida) sun'iy intellekt yordamida avtomatik javob beradi. Javoblar yuborilgan matn tilini aniqlash orqali (O‘zbek, Rus, Ingliz) mos tarzda yaratiladi. Bot barcha savollarni SQLite bazasida saqlaydi.
 
-aiogram==3.4.1 Telegram bot framework for creating asynchronous bots (Python Telegram Bot Framework)
-transformers HuggingFace module — used to get answers from AI models (e.g., distilbert)
-torch Required PyTorch library to run the AI model
-langdetect To detect the language of the text (UZ, RU, EN, etc.)
-sqlite3 (standard) To store questions/answers and users in an SQL database
+---
 
-Module	Purpose
+## 📌 Asosiy imkoniyatlar
 
-Pytesseract	Read text from images (OCR)
-Pdfplumber	Extract text from PDF files
-Detect the language of the text and return AI response accordingly	
-Save questions and answers to SQLite database	
-**Best feature
-Checks the questions submitted by users and saves them
-**
-Limitations
-Only PDF and TXT document formats are accepted
-If no text is found in the file or image, no response is returned
-Response length is around 100 words
+- Matnli savollarga AI orqali javob berish
+- PDF va TXT fayllardan matn ajratib, savolga AI javobi yaratish
+- Tilni avtomatik aniqlash va shunga mos tilda javob berish
+- Savollar/javoblarni SQLite bazasida saqlash
+- Logging va asosiy xatoliklar uchun foydalanuvchiga xabar berish
+
+---
+
+## 📦 Ishlatilgan kutubxonalar
+
+| Modul        | Maqsad                                                                 |
+|--------------|------------------------------------------------------------------------|
+| `aiogram==3.4.1`   | Telegram bot yaratish uchun asinxron kutubxona (Python Telegram Bot Framework) |
+| `transformers`     | HuggingFace moduli — AI modeldan (masalan, Flan-T5) savollarga javob olish |
+| `torch`            | AI modelni ishga tushirish uchun zarur bo‘lgan PyTorch kutubxonasi |
+| `langdetect`       | Matn tilini aniqlash (UZ, RU, EN va h.k.) uchun |
+| `sqlite3`          | Standart Python kutubxonasi — savollar/javoblarni SQL bazaga yozish |
+| `pytesseract`      | Rasm ichidagi matnni o‘qish (OCR) |
+| `pillow`           | OCR uchun rasmni ochish va qayta ishlash (PIL) |
+| `PyPDF2`           | PDF fayldan matn ajratish uchun |
+
+> ⚠️ `pytesseract` ishlashi uchun Tesseract OCR tizimda o‘rnatilgan bo‘lishi **majburiy**.
+
+---
+
+## ⚙️ O‘rnatish
+
+```bash
+git clone https://github.com/username/telegram-ai-bot.git
+cd telegram-ai-bot
+
+# Virtual muhit (tavsiya etiladi)
+python -m venv venv
+source venv/bin/activate   # Windows: venv\Scripts\activate
+
+# Kutubxonalarni o‘rnating
+pip install -r requirements.txt
